@@ -18,4 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin/providers', [ProvidersController::class, 'index']);
+Route::get('/admin/providers', [ProvidersController::class, 'index'])->middleware('auth');
+
+
+Route::get('login', function () {
+    return 'login';
+})->name('login');
