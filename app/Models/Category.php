@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Provider extends Model
+class Category extends Model
 {
     use HasFactory;
 
-    public function Category()
+    public function provider()
     {
-        return $this->belongsTo(Category::class, 'category_id');
+        return $this->hasMany(Provider::class, 'categoria_id');
     }
 }
