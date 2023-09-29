@@ -17,6 +17,7 @@ class ProviderFactory extends Factory
     public function definition(): array
     {
         return [
+            'service_category_id' => null,
             'name' => $this->faker->company,
             'contact_name' => $this->faker->name,
             'contact_phone' => $this->faker->phoneNumber,

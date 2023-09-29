@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('providers', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('service_category_id')->nullable()->constrained('service_categories')->onDelete('set null');
             $table->string('name');
             $table->string('contact_name');
             $table->string('contact_phone');
             $table->string('contact_email')->nullable();
-            $table->string('category_id');
             $table->timestamps();
         });
     }

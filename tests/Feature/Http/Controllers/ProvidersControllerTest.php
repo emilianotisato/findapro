@@ -5,7 +5,7 @@ namespace Tests\Feature\Http\Controllers;
 use Tests\TestCase;
 use App\Models\User;
 use App\Models\Provider;
-use App\Models\Category;
+use App\Models\ServiceCategory;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -34,9 +34,9 @@ class ProvidersControllerTest extends TestCase
             'role' => 'admin'
         ]);
 
-        $category = Category::factory()->create();
+        $category = ServiceCategory::factory()->create();
 
-        $providers = Provider::factory()->count(3)->create(['category_id' => $category->id]);
+        $providers = Provider::factory()->count(3)->create(['service_category_id' => $category->id]);
 
         $this->actingAs($admin)
             ->get('/admin/providers')
@@ -46,7 +46,7 @@ class ProvidersControllerTest extends TestCase
             ->assertSee($providers[0]->name)
             ->assertSee($providers[0]->contact_name)
             ->assertSee($providers[0]->contact_phone)
-            ->assertSee($providers[0]->serviceCategory->category_id)
+            ->assertSee($providers[0]->serviceCategory->name)
             ;
     }
 }

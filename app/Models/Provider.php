@@ -9,8 +9,8 @@ class Provider extends Model
 {
     use HasFactory;
 
-    public function Category()
+    public function serviceCategory()
     {
-        return $this->belongsTo(Category::class, 'category_id');
+        return $this->belongsTo(ServiceCategory::class);
     }
 }
