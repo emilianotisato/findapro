@@ -21,6 +21,7 @@ class ProviderFactory extends Factory
             'name' => $this->faker->company,
             'contact_name' => $this->faker->name,
             'contact_phone' => $this->faker->phoneNumber,
+            'contact_email' => $this->faker->email,
         ];
     }
 }
