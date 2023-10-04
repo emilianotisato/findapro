@@ -15,6 +15,7 @@ class ProvidersController extends Controller
         }
         $providers = Provider::all();
 
+
         return view('admin.providers.index', [
             'providers' => $providers
         ]);        

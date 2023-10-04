@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProvidersController;
 
@@ -21,6 +22,5 @@ Route::get('/', function () {
 Route::get('/admin/providers', [ProvidersController::class, 'index'])->middleware('auth');
 
 
-Route::get('login', function () {
-    return 'login';
-})->name('login');
+Route::get('login', [AuthController::class, 'showLogin'])->name('login');
+Route::post('login', [AuthController::class, 'login']);
