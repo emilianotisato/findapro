@@ -49,4 +49,26 @@ class ProvidersControllerTest extends TestCase
             ->assertSee($providers[0]->serviceCategory->name)
             ;
     }
+
+    /** @test */
+    public function it_can_create_a_provider()
+    {
+      $admin = User::factory()->create([
+        'role' => 'admin'
+      ]);
+
+      $this->actingAs($admin)->post('/admin/providers', [
+        'name' => 'Provider 1',
+        'contact_name' => 'John Doe',
+        'contact_phone' => '123456789',
+        'contact_email' => 'john@doe.com',
+      ]);
+
+      $this->assertDatabaseHas('providers', [
+        'name' => 'Provider 1',
+        'contact_name' => 'John Doe',
+        'contact_phone' => '123456789',
+        'contact_email' => 'john@doe.com'
+      ]);
+    }
 }

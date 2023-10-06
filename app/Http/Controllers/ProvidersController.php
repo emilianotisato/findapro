@@ -10,9 +10,7 @@ class ProvidersController extends Controller
 {
     public function index()
     {
-        if(Auth::user()->role !== 'admin') {
-           abort(403);
-        }
+       
         $providers = Provider::all();
 
 
