@@ -22,5 +22,9 @@ Route::get('/', function () {
 Route::get('/admin/providers', [ProvidersController::class, 'index'])->middleware('auth');
 
 
+Route::get('/admin/providers/create', [ProvidersController::class, 'create']);
+Route::post('/admin/providers/create', [ProvidersController::class, 'store']);
+
+
 Route::get('login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('login', [AuthController::class, 'login']);
