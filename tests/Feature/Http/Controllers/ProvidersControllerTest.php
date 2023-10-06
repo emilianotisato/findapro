@@ -56,19 +56,17 @@ class ProvidersControllerTest extends TestCase
       $admin = User::factory()->create([
         'role' => 'admin'
       ]);
-
-      $this->actingAs($admin)->post('/admin/providers', [
-        'name' => 'Provider 1',
-        'contact_name' => 'John Doe',
-        'contact_phone' => '123456789',
-        'contact_email' => 'john@doe.com',
-      ]);
-
-      $this->assertDatabaseHas('providers', [
+      $data = [
         'name' => 'Provider 1',
         'contact_name' => 'John Doe',
         'contact_phone' => '123456789',
         'contact_email' => 'john@doe.com'
-      ]);
+      ];
+
+      $this->assertDatabaseMissing('providers', $data);
+
+      $this->actingAs($admin)->post('/admin/providers', $data);
+
+      $this->assertDatabaseHas('providers', $data);
     }
 }
