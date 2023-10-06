@@ -27,7 +27,8 @@ class ProvidersController extends Controller
     public function store(Request $request)
     {
         Provider::create($request->all());
-        return redirect('/admin/providers')->with('success');
+
+        return redirect('/admin/providers')->with('success', 'Provider created successfully');
     }
 }
 

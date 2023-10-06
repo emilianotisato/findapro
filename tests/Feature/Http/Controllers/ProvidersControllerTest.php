@@ -65,7 +65,9 @@ class ProvidersControllerTest extends TestCase
 
       $this->assertDatabaseMissing('providers', $data);
 
-      $this->actingAs($admin)->post('/admin/providers', $data);
+      $this->actingAs($admin)->post('/admin/providers', $data)
+        ->assertRedirect('/admin/providers')
+        ->assertSessionHas('success');
 
       $this->assertDatabaseHas('providers', $data);
     }
