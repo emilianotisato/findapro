@@ -1,3 +1,9 @@
+@extends('admin.layouts.app')
+
+@section('title', 'Providers')
+
+@section('content')
+@include('components.admin.test')
 <div>
     <ul>
         @foreach ($providers as $provider)
@@ -6,4 +12,6 @@
     </ul>
 </div>
 
+
+@endsection
 
