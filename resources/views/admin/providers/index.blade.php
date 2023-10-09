@@ -3,7 +3,8 @@
 @section('title', 'Providers')
 
 @section('content')
-@include('components.admin.test')
+
+<x-admin.table/>
 <div>
     <ul>
         @foreach ($providers as $provider)
@@ -11,7 +12,6 @@
         @endforeach
     </ul>
 </div>
-
 
 @endsection
 
