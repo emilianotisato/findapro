@@ -10,12 +10,8 @@ class ProvidersController extends Controller
 {
     public function index()
     {
-       
-        $providers = Provider::all();
-
-
         return view('admin.providers.index', [
-            'providers' => $providers
+            'providers' => Provider::paginate(10)
         ]);        
     }
 
