@@ -20,12 +20,13 @@ Route::get('/', function () {
 });
 Route::get('login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('login', [AuthController::class, 'login']);
+Route::get('logout', [AuthController::class, 'logout']);
 
 
 
 Route::prefix('admin')->middleware('admin')->group(function(){
     Route::get('providers', [ProvidersController::class, 'index']); // index (listado)
-    Route::get('providers/{provider}', [ProvidersController::class, 'show']); // show (mostrar)
+    //Route::get('providers/{provider}', [ProvidersController::class, 'show']); // show (mostrar)
 
     Route::get('providers/create', [ProvidersController::class, 'create']); // create (formulario)
     Route::post('providers', [ProvidersController::class, 'store']); // store (guardar)
@@ -34,6 +35,8 @@ Route::prefix('admin')->middleware('admin')->group(function(){
     Route::put('providers/{provider}', [ProvidersController::class, 'update']); // update (actualizar)
 
     Route::delete('providers/{provider}', [ProvidersController::class, 'destroy']); // destroy (eliminar)
+
+   
 });
 
 
