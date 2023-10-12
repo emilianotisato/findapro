@@ -29,9 +29,9 @@ class ProvidersController extends Controller
             'contact_email'=> $request->input('contact_email')
             
         ]);
-        //Provider::create($request->all());
 
-        return redirect('/admin/providers')->with('success', 'Provider created successfully');
+        //Provider::create($request->all());
+        return redirect('/admin/providers')->with('success', 'Provider created successfully??');
     }
 
     public function edit($id)
