@@ -11,7 +11,7 @@ class ProvidersController extends Controller
     public function index()
     {
         return view('admin.providers.index', [
-            'providers' => Provider::paginate(10)
+            'providers' => Provider::latest()->paginate(10)
         ]);        
     }
 
@@ -22,9 +22,23 @@ class ProvidersController extends Controller
 
     public function store(Request $request)
     {
-        Provider::create($request->all());
+        Provider::create([
+            'name'=> $request->input('name'),
+            'contact_name'=> $request->input('contact_name'),
+            'contact_phone'=> $request->input('contact_phone'),
+            'contact_email'=> $request->input('contact_email')
+            
+        ]);
+        //Provider::create($request->all());
 
         return redirect('/admin/providers')->with('success', 'Provider created successfully');
+    }
+
+    public function edit($id){
+
+        $provider = Provider::findOrFail($id);
+        return view ('admin/provider/edit',compact($provider));
+
     }
 }
 

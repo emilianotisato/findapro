@@ -4,14 +4,14 @@
     <h1>FindaPro</h1>
     <h2>Create a new Provider</h2><br>
    
-      <form action="/admin/providers/create" method="post">
+      <form action="{{ url('/admin/providers') }}" method="post">
       @csrf
         <div class="formbold-input-group">
           <label for="company" class="formbold-form-label"> Company Name</label>
           <input
             type="text"
-            name="company"
-            id="company"
+            name="name"
+            {{-- id="company" --}}
             placeholder="Enter your company name"
             class="formbold-form-input"
           />
@@ -21,8 +21,8 @@
           <label for="name" class="formbold-form-label"> Name</label>
           <input
             type="text"
-            name="name"
-            id="name"
+            name="contact_name"
+            {{-- id="name" --}}
             placeholder="Enter your name"
             class="formbold-form-input"
           />
@@ -32,19 +32,19 @@
           <label for="phone" class="formbold-form-label"> Phone </label>
           <input
             type="tel"
-            name="phone"
-            id="phone"
+            name="contact_phone"
+            {{-- id="phone" --}}
             placeholder="Enter your phone number"
             class="formbold-form-input"
           />
         </div>
   
         <div class="formbold-input-group">
-          <label for="email" class="formbold-form-label"> Email </label>
+          <label for="contact_email" class="formbold-form-label"> Email </label>
           <input
             type="email"
-            name="lastname"
-            id="email"
+            name="contact_email"
+            {{-- id="email" --}}
             placeholder="Enter your email"
             class="formbold-form-input"
           />
@@ -67,7 +67,7 @@
         </div>
   
        
-        <button class="formbold-btn">Submit</button>
+        <button type="submit" class="formbold-btn">Submit</button>
       </form>
     </div>
   </div>
