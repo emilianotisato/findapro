@@ -17,7 +17,7 @@ class ProvidersController extends Controller
 
     public function create()
     {
-        return view('admin.providers.create.createproviderform');
+        return view('admin.providers.create');
     }
 
     public function store(Request $request)
@@ -34,11 +34,10 @@ class ProvidersController extends Controller
         return redirect('/admin/providers')->with('success', 'Provider created successfully');
     }
 
-    public function edit($id){
-
+    public function edit($id)
+    {
         $provider = Provider::findOrFail($id);
         return view ('admin/provider/edit',compact($provider));
-
     }
 }
 
