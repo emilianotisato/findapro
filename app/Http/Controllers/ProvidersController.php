@@ -10,25 +10,40 @@ class ProvidersController extends Controller
 {
     public function index()
     {
-       
-        $providers = Provider::all();
-
-
         return view('admin.providers.index', [
-            'providers' => $providers
-        ]);        
+            'providers' => Provider::latest()->paginate(10)
+        ]);
     }
 
     public function create()
     {
-        return view('admin.providers.create.createproviderform');
+        return view('admin.providers.create');
     }
 
     public function store(Request $request)
     {
-        Provider::create($request->all());
+        $request->validate([
+            'name' => 'required',
+            'contact_name' => 'required',
+            'contact_phone' => 'required|numeric|digits:10',
+            'contact_email' => 'required',
+        ]);
+        Provider::create([
+            'name'=> $request->input('name'),
+            'contact_name'=> $request->input('contact_name'),
+            'contact_phone'=> $request->input('contact_phone'),
+            'contact_email'=> $request->input('contact_email')
+            
+        ]);
 
-        return redirect('/admin/providers')->with('success', 'Provider created successfully');
+        //Provider::create($request->all());
+        return redirect('/admin/providers')->with('success', 'Provider created successfully??');
+    }
+
+    public function edit($id)
+    {
+        $provider = Provider::findOrFail($id);
+        return view ('admin/provider/edit',compact($provider));
     }
 }
 
