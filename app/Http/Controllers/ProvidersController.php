@@ -25,7 +25,7 @@ class ProvidersController extends Controller
         $request->validate([
             'name' => 'required',
             'contact_name' => 'required',
-            'contact_phone' => 'required',
+            'contact_phone' => 'required|numeric|digits:10',
             'contact_email' => 'required',
         ]);
         Provider::create([
