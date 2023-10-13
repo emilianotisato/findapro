@@ -28,6 +28,7 @@
                     <label for="companyname" class="block text-sm font-medium leading-6 text-gray-900">Company Name</label>
                     <div class="relative mt-2 rounded-md shadow-sm">
                         <input type="text" name="name" id="companyname"
+                            value="{{ old('name') }}"
                             class="block w-full rounded-md border-0 p-2 pr-10 text-grey-900 ring-1 ring-inset ring-grey-300 @if ($errors->has('name')) text-red-900  ring-red-300 placeholder:text-red-300  focus:ring-2 focus:ring-inset focus:ring-red-500 @endif sm:text-sm sm:leading-6"
                             placeholder="" aria-invalid="true" aria-describedby="company-error">
                         @if ($errors->has('name'))
@@ -51,6 +52,7 @@
                     <label for="contactname" class="block text-sm font-medium leading-6 text-gray-900">Contact Name</label>
                     <div class="relative mt-2 rounded-md shadow-sm">
                         <input type="text" name="contact_name" id="contactname"
+                            value="{{ old('contact_name') }}"
                             class="block w-full rounded-md ompany border-0 p-2 pr-10 text-grey-900 ring-1 ring-inset ring-grey-300 @if ($errors->has('contact_name')) text-red-900  ring-red-300 placeholder:text-red-300  focus:ring-2 focus:ring-inset focus:ring-red-500 @endif sm:text-sm sm:leading-6"
                             placeholder="" aria-invalid="true" aria-describedby="contact-name-error">
                         @if ($errors->has('contact_name'))
@@ -74,6 +76,7 @@
                 <label for="phone" class="block text-sm font-medium leading-6 text-gray-900">Phone Number</label>
                 <div class="relative mt-2 rounded-md shadow-sm">
                     <input type="text" name="contact_phone" id="phone"
+                        value="{{ old('contact_phone') }}"
                         class="block w-full rounded-md border-0 p-2 pr-10 text-grey-900 ring-1 ring-inset ring-grey-300 @if ($errors->has('contact_phone')) text-red-900  ring-red-300 placeholder:text-red-300  focus:ring-2 focus:ring-inset focus:ring-red-500 @endif sm:text-sm sm:leading-6"
                         placeholder="" aria-invalid="true" aria-describedby="phone-error">
                     @if ($errors->has('contact_phone'))
@@ -96,6 +99,7 @@
                     <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email</label>
                     <div class="relative mt-2 rounded-md shadow-sm">
                         <input type="text" name="contact_email" id="email"
+                            value="{{ old('contact_email') }}"
                             class="block w-full rounded-md border-0 p-2 pr-10 text-grey-900 ring-1 ring-inset ring-grey-300 @if ($errors->has('contact_email')) text-red-900  ring-red-300 placeholder:text-red-300  focus:ring-2 focus:ring-inset focus:ring-red-500 @endif sm:text-sm sm:leading-6"
                             placeholder="you@example.com" aria-invalid="true" aria-describedby="email-error">
                         @if ($errors->has('contact_email'))

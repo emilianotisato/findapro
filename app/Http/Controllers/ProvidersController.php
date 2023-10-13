@@ -28,6 +28,7 @@ class ProvidersController extends Controller
             'contact_phone' => 'required|numeric|digits:10',
             'contact_email' => 'required',
         ]);
+        
         Provider::create([
             'name'=> $request->input('name'),
             'contact_name'=> $request->input('contact_name'),
