@@ -46,6 +46,7 @@
                     @endif
                 </div>
 
+                <br>
                 <div>
                     <label for="contactname" class="block text-sm font-medium leading-6 text-gray-900">Contact Name</label>
                     <div class="relative mt-2 rounded-md shadow-sm">
@@ -68,6 +69,7 @@
                     @endif
                 </div>
               
+                <br>
                 <div>
                 <label for="phone" class="block text-sm font-medium leading-6 text-gray-900">Phone Number</label>
                 <div class="relative mt-2 rounded-md shadow-sm">
@@ -89,7 +91,7 @@
                     <p class="mt-2 text-sm text-red-600" id="phone-error">{{ $errors->first('contact_phone') }}</p>
                 @endif
             </div>
-                
+                <br>
                 <div>
                     <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email</label>
                     <div class="relative mt-2 rounded-md shadow-sm">
@@ -112,6 +114,7 @@
                     @endif
                 </div>
 
+                <br>
                 <div>
                     <label id="listbox-label" class="block text-sm font-medium leading-6 text-gray-900">Category</label>
                     <div class="relative mt-2">
@@ -147,7 +150,7 @@
                   
                 
                 <br>
-
+                <br>
                 <button type="submit" onclick="window.location.href='/admin/providers/create'" 
                 class="block rounded-md
                 bg-indigo-600 px-3 py-2 text-center text-sm font-semibold
