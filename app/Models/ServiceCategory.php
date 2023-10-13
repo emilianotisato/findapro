@@ -9,6 +9,10 @@ class ServiceCategory extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name'
+    ];
+
     public function providers()
     {
         return $this->hasMany(Provider::class);
