@@ -19,6 +19,11 @@ class Provider extends Model
     ];
 
     protected $appends = ['category_name'];
+
+    public function services()
+    {
+        return $this->hasMany(Service::class);
+    }
     
     public function serviceCategory()
     {
