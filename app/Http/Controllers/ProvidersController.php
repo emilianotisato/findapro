@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Provider;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,15 +26,15 @@ class ProvidersController extends Controller
         $request->validate([
             'name' => 'required',
             'contact_name' => 'required',
-            'contact_phone' => 'required',
+            'contact_phone' => 'required|numeric|digits:10',
             'contact_email' => 'required',
         ]);
+        
         Provider::create([
             'name'=> $request->input('name'),
             'contact_name'=> $request->input('contact_name'),
             'contact_phone'=> $request->input('contact_phone'),
-            'contact_email'=> $request->input('contact_email')
-            
+            'contact_email'=> $request->input('contact_email'),
         ]);
 
         //Provider::create($request->all());

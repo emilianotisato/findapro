@@ -10,7 +10,7 @@
             'name' => 'Provider Name',
             'contact_name' => 'Contact Name',
             'contact_phone' => 'Contact Phone',
-            'serviceCategory?->name' => 'Category',
+            'category_name' => 'Category',
         ]" :items="$providers" />
 
 @endsection

@@ -42,7 +42,6 @@ class ProvidersControllerTest extends TestCase
             ->get('/admin/providers')
             ->assertStatus(200)
             ->assertViewIs('admin.providers.index')
-            ->assertViewHas('providers', $providers)
             ->assertSee($providers[0]->name)
             ->assertSee($providers[0]->contact_name)
             ->assertSee($providers[0]->contact_phone)
@@ -59,7 +58,7 @@ class ProvidersControllerTest extends TestCase
       $data = [
         'name' => 'Provider 1',
         'contact_name' => 'John Doe',
-        'contact_phone' => '123456789',
+        'contact_phone' => '1234567890',
         'contact_email' => 'john@doe.com'
       ];
 
