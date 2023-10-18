@@ -12,16 +12,22 @@ class ProvidersController extends Controller
     {
         return view('admin.providers.index', [
             'providers' => Provider::latest()->paginate(10)
-        ]);        
+        ]);
     }
 
     public function create()
     {
-        return view('admin.providers.create.createproviderform');
+        return view('admin.providers.create');
     }
 
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'contact_name' => 'required',
+            'contact_phone' => 'required',
+            'contact_email' => 'required',
+        ]);
         Provider::create([
             'name'=> $request->input('name'),
             'contact_name'=> $request->input('contact_name'),
@@ -29,9 +35,9 @@ class ProvidersController extends Controller
             'contact_email'=> $request->input('contact_email')
             
         ]);
-        //Provider::create($request->all());
 
-        return redirect('/admin/providers')->with('success', 'Provider created successfully');
+        //Provider::create($request->all());
+        return redirect('/admin/providers')->with('success', 'Provider created successfully??');
     }
 
     public function edit($id){
