@@ -23,14 +23,14 @@ Route::post('login', [AuthController::class, 'login']);
 
 
 Route::prefix('admin')->middleware('admin')->group(function(){
-    Route::get('providers', [ProvidersController::class, 'index']); // index (listado)
-    Route::get('providers/create', [ProvidersController::class, 'create']); // create (formulario)
-    Route::get('providers/{provider}', [ProvidersController::class, 'show']); // show (mostrar)
-    Route::post('providers', [ProvidersController::class, 'store']); // store (guardar)
+    Route::get('providers', [ProvidersController::class, 'index'])->name('providers.index'); // index (listado)
+    Route::get('providers/new', [ProvidersController::class, 'create'])->name('providers.new'); // create (formulario)
+    Route::get('providers/{provider}', [ProvidersController::class, 'show'])->name('providers.show'); // show (mostrar)
+    Route::post('providers', [ProvidersController::class, 'store'])->name('providers.store'); // store (guardar)
 
-    Route::get('providers/{id}/edit/editprovider', [ProvidersController::class, 'edit'])->name('providers.edit'); // edit (formulario de edicion)
-    Route::put('providers/{id}', [ProvidersController::class, 'update'])->name('providers.update'); // update (actualizar)
-    Route::delete('providers/{provider}', [ProvidersController::class, 'destroy']); // destroy (eliminar)
+    Route::get('providers/{provider}/edit', [ProvidersController::class, 'edit'])->name('providers.edit'); // edit (formulario de edicion)
+    Route::put('providers/{provider}', [ProvidersController::class, 'update'])->name('providers.update'); // update (actualizar)
+    Route::delete('providers/{provider}', [ProvidersController::class, 'destroy'])->name('providers.destroy'); // destroy (eliminar)
 });
 
 

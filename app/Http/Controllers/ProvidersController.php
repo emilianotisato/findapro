@@ -38,23 +38,12 @@ class ProvidersController extends Controller
         ]);
 
         //Provider::create($request->all());
-        return redirect('/admin/providers')->with('success', 'Provider created successfully??');
+        return redirect()->route('providers.index')->with('success', 'Provider created successfully??');
     }
 
-    public function edit($id){
-
-        $provider = Provider::findOrFail($id);
-
-        if (!$provider) {
-          
-            return redirect('/admin/providers')->with('error', 'Registro no encontrado');
-        }
-
-       
-        return view('admin.providers.edit.editprovider', compact('provider'));
-
-        
-       
+    public function edit(Provider $provider)
+    {       
+        return view('admin.providers.edit', compact('provider'));
     }
 
     public function update(Request $request, $id)
@@ -70,7 +59,7 @@ class ProvidersController extends Controller
             'contact_email'=> $request->input('contact_email')
         ]);
 
-        return redirect('admin/providers')->with('success', 'Proveedor actualizado correctamente');
+        return redirect()->route('providers.index')->with('success', 'Proveedor actualizado correctamente');
     }
 }
 

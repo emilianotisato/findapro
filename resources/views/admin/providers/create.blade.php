@@ -10,19 +10,19 @@
 
             </div>
             <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-                <button type="button" onclick="window.location.href='/admin/providers/create'"
+                <a href='{{ route('providers.new') }}'"
                     class="block rounded-md
       bg-indigo-600 px-3 py-2 text-center text-sm font-semibold
       text-white shadow-sm hover:bg-indigo-500 focus-visible:outline 
       focus-visible:outline-2 focus-visible:outline-offset-2
       focus-visible:outline-indigo-600">Add
-                    Provider</button>
+                    Provider</a>
             </div>
         </div>
         <x-admin.success-message />
         <div class="mt-8 container max-w-2xl m-auto">
 
-            <form action="/admin/providers" method="post" class="">
+            <form action="{{route('providers.store')}}" method="post" class="">
                 @csrf
                 <div>
                     <label for="companyname" class="block text-sm font-medium leading-6 text-gray-900">Company Name</label>
@@ -155,12 +155,12 @@
                 
                 <br>
                 <br>
-                <button type="submit" onclick="window.location.href='/admin/providers/create'" 
+                <a href="{{ route('providers.new') }}"
                 class="block rounded-md
                 bg-indigo-600 px-3 py-2 text-center text-sm font-semibold
                 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline 
                 focus-visible:outline-2 focus-visible:outline-offset-2
-                focus-visible:outline-indigo-600">Submit</button>
+                focus-visible:outline-indigo-600">Submit</a>
                 
 
             </form>
