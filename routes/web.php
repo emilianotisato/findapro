@@ -30,7 +30,7 @@ Route::prefix('admin')->middleware('admin')->group(function(){
     Route::get('providers/create', [ProvidersController::class, 'create']); // create (formulario)
     Route::post('providers', [ProvidersController::class, 'store']); // store (guardar)
 
-    Route::get('providers/{id}/edit', [ProvidersController::class, 'edit']); // edit (formulario de edicion)
+    Route::get('providers/{id}', [ProvidersController::class, 'edit']); // edit (formulario de edicion)
     Route::put('providers/{provider}', [ProvidersController::class, 'update']); // update (actualizar)
 
     Route::delete('providers/{provider}', [ProvidersController::class, 'destroy']); // destroy (eliminar)

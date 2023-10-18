@@ -23,7 +23,7 @@
                 <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">{{$header}}</th>
               @endforeach
               <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-0">
-                <span class="sr-only">Edit</span>
+                <span class="sr-only" type="button" action= "url ('/admin/provider/id">Edit</span>
               </th>
             </tr>
           </thead>

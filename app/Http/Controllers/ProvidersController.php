@@ -36,9 +36,18 @@ class ProvidersController extends Controller
 
     public function edit($id){
 
-        $provider = Provider::findOrFail($id);
-        return view ('admin/provider/edit',compact($provider));
+        $provider = Provider::find($id);
 
+        if (!$provider) {
+          
+            return redirect('/admin/providers')->with('error', 'Registro no encontrado');
+        }
+
+       
+        return view('admin/provider/edit', compact($provider));
+
+        
+       
     }
 }
 
