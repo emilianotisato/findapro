@@ -42,7 +42,7 @@ class ProvidersController extends Controller
 
     public function edit($id){
 
-        $provider = Provider::find($id);
+        $provider = Provider::findOrFail($id);
 
         if (!$provider) {
           
@@ -50,10 +50,26 @@ class ProvidersController extends Controller
         }
 
        
-        return view('admin/provider/edit', compact($provider));
+        return view('admin.providers.edit.editprovider', compact('provider'));
 
         
        
+    }
+
+    public function update(Request $request, $id)
+    {
+    
+ 
+        $provider = Provider::findOrFail($id);
+
+        $provider->update([
+            'name'=> $request->input('name'),
+            'contact_name'=> $request->input('contact_name'),
+            'contact_phone'=> $request->input('contact_phone'),
+            'contact_email'=> $request->input('contact_email')
+        ]);
+
+        return redirect('admin/providers')->with('success', 'Proveedor actualizado correctamente');
     }
 }
 

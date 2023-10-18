@@ -28,8 +28,9 @@ Route::prefix('admin')->middleware('admin')->group(function(){
     Route::get('providers/create', [ProvidersController::class, 'create']); // create (formulario)
     Route::get('providers/{provider}', [ProvidersController::class, 'show']); // show (mostrar)
     Route::post('providers', [ProvidersController::class, 'store']); // store (guardar)
-    Route::get('providers/{id}', [ProvidersController::class, 'edit']); // edit (formulario de edicion)
-    Route::put('providers/{provider}', [ProvidersController::class, 'update']); // update (actualizar)
+
+    Route::get('providers/{id}/edit/editprovider', [ProvidersController::class, 'edit'])->name('providers.edit'); // edit (formulario de edicion)
+    Route::put('providers/{id}', [ProvidersController::class, 'update'])->name('providers.update'); // update (actualizar)
     Route::delete('providers/{provider}', [ProvidersController::class, 'destroy']); // destroy (eliminar)
 });
 

@@ -23,9 +23,9 @@
               @foreach ($itemsMap as $header) 
                 <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">{{$header}}</th>
               @endforeach
-              <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-0">
-                <span class="sr-only" type="button" action= "url ('/admin/provider/id">Edit</span>
-              </th>
+              {{-- <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-0">
+                <button class="sr-only" type="button"  onclick="window.location.href= '/admin/providers/edit/editprovider/id'">edit</button>
+              </th> --}}
             </tr>
           </thead>
           <tbody class="divide-y divide-gray-200">
@@ -36,7 +36,7 @@
                   @endforeach
               
                   <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
-                    <a href="{{$item->id}}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                    <a href="/admin/providers/{{$item->id}}/edit/editprovider" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                   </td>
                 </tr>
               @endforeach
