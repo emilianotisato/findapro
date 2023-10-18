@@ -29,7 +29,7 @@ class ProvidersController extends Controller
             'contact_phone' => 'required|numeric|digits:10',
             'contact_email' => 'required',
         ]);
-        
+
         Provider::create([
             'name'=> $request->input('name'),
             'contact_name'=> $request->input('contact_name'),
@@ -46,12 +46,8 @@ class ProvidersController extends Controller
         return view('admin.providers.edit', compact('provider'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Provider $provider)
     {
-    
- 
-        $provider = Provider::findOrFail($id);
-
         $provider->update([
             'name'=> $request->input('name'),
             'contact_name'=> $request->input('contact_name'),
