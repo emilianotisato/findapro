@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Provider;
 use App\Models\User;
+use App\Models\Provider;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -42,12 +43,19 @@ class ProvidersController extends Controller
     }
 
     public function edit(Provider $provider)
-    {       
+    {      
         return view('admin.providers.edit', compact('provider'));
     }
 
     public function update(Request $request, Provider $provider)
     {
+        $request->validate([
+            'name' => 'required',
+            'contact_name' => 'required',
+            'contact_phone' => 'required|numeric|digits:10',
+            'contact_email' => 'required',
+        ]);
+        
         $provider->update([
             'name'=> $request->input('name'),
             'contact_name'=> $request->input('contact_name'),
@@ -55,7 +63,7 @@ class ProvidersController extends Controller
             'contact_email'=> $request->input('contact_email')
         ]);
 
-        return redirect()->route('providers.index')->with('success', 'Proveedor actualizado correctamente');
+        return redirect()->route('providers.index')->with('success', 'Provider updated successfully');
     }
 }
 
