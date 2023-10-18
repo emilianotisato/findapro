@@ -39,7 +39,7 @@ class ProvidersController extends Controller
         ]);
 
         //Provider::create($request->all());
-        return redirect()->route('providers.index')->with('success', 'Provider created successfully??');
+        return redirect()->route('providers.index')->with('success', 'Provider created successfully');
     }
 
     public function edit(Provider $provider)
@@ -64,6 +64,13 @@ class ProvidersController extends Controller
         ]);
 
         return redirect()->route('providers.index')->with('success', 'Provider updated successfully');
+    }
+
+    public function destroy(Request $request, Provider $provider)
+    {
+        $provider->delete();
+        
+        return redirect()->route('providers.index')->with('success', 'Provider deleted successfully');        
     }
 }
 
