@@ -20,6 +20,7 @@ class ServiceFactory extends Factory
             'name' => $this->faker->word,
             'description' => $this->faker->paragraph,
             'photo' => $this->faker->imageUrl(),
+            'active' => true,
         ];
     }
 }

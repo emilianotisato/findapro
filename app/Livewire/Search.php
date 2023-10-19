@@ -12,7 +12,7 @@ class Search extends Component
     public $results = [];
     public $localities = [];
 
-    public function search()
+    public function getResults()
     {
         $results = Service::active()->search($this->query)->take(5)->get();
         $this->results = $results;

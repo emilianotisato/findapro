@@ -20,6 +20,9 @@ Route::get('/', HomePageController::class);
 Route::get('login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('login', [AuthController::class, 'login']);
 
+Route::get('services/{service}', function($service) {
+    dd($service);
+})->name('public.services.show');
 
 
 Route::prefix('admin')->middleware('admin')->group(function(){

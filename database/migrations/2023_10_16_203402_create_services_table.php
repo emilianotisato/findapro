@@ -17,6 +17,7 @@ return new class extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Provider::class);
+            $table->boolean('active')->default(false);
             $table->string('name');
             $table->text('description');
             $table->string('photo');

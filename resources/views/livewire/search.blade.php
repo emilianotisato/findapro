@@ -1,5 +1,5 @@
-<div>
-    <div class="p-6 bg-[url('../../public/images/hero.jpg')] bg-cover bg-no-repeat">
+<div class="h-full">
+    <div class="h-full flex flex-col justiy-center p-6 bg-[url('../../public/images/hero.jpg')] bg-cover bg-no-repeat">
         <h1 class="text-6xl drop-shadow-md text-green-500">Find the pro contractor you are looking for!</h1>
 
         <div class="w-full">
@@ -22,21 +22,23 @@
                         class="block w-full rounded-none rounded-l-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         placeholder="Cannes...">
                 </div>
-                <button type="button"
-                    wire:click="search"
+                <button type="button" wire:click="getResults"
                     class="relative -ml-px bg-green-600 inline-flex items-center gap-x-1.5 rounded-r-md px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
                     Search
                 </button>
             </div>
-            @if(count($results) > 0)
-            <div class="absolute bg-white p-4 w-3/4">
-                <p>resultados</p>
-                <ul>
-                    <li>resultado 1</li>
-                    <li>resultado 2</li>
-                    <li>resultado 3</li>
-                </ul>
-            </div>
+            @if (count($results) > 0)
+                <div class="absolute bg-white p-4 w-3/4">
+                    <ul>
+                        @foreach ($results as $service)
+                            <li>
+                                <a href="{{ route('public.services.show', ['service' => $service->id]) }}">
+                                    {{ $service->name }}
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
             @endif
         </div>
 
