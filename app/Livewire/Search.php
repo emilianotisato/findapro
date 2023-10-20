@@ -12,8 +12,8 @@ class Search extends Component
     public string $locationSearch = '';
     public ?Location $selectedLocation = null;
 
-    public array $results = [];
-    public array $locations = [];
+    public  $results = [];
+    public  $locations = [];
 
     public function getResults()
     {
