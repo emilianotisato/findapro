@@ -2,8 +2,8 @@
     <div class="h-full flex flex-col justiy-center p-6 bg-[url('../../public/images/hero.jpg')] bg-cover bg-no-repeat">
         <h1 class="text-6xl drop-shadow-md text-green-500">Find the pro contractor you are looking for!</h1>
 
-        <div class="w-full">
-            <div class="mt-2 flex rounded-md shadow-sm">
+        <div class="w-full  max-w-[550px]">
+            <div class="mt-2 flex flex-col md:flex-row rounded-md shadow-sm">
                 <input type="text" wire:model="query"
                     class="block w-full rounded-none rounded-l-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     placeholder="Electrician...">
@@ -18,17 +18,40 @@
                                 d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
                         </svg>
                     </div>
-                    <input type="text"
-                        wire:model="locationSearch"
-                        x-on:change="$wire.getLocations"
+                    @if(! $selectedLocation)
+                    <input type="text" wire:model.live="locationSearch"
                         class="block w-full rounded-none rounded-l-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         placeholder="Cannes...">
+                    @else
+                    <input type="text" wire:model.live="locationSearch"
+                        class="block w-full rounded-none rounded-l-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        placeholder="{{$selectedLocation->name}}" disabled>
+                        <button wire:click="clearLocation" class="bg-white text-1xl flex items-center">
+                            <span>X</span>
+                        </button>
+                    @endif
+                        
+
                 </div>
                 <button type="button" wire:click="getResults"
                     class="relative -ml-px bg-green-600 inline-flex items-center gap-x-1.5 rounded-r-md px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
                     Search
                 </button>
             </div>
+            @if (count($locations) > 0)
+                <div class="absolute bg-white p-4 w-3/4 z-50">
+                    <ul>
+                        @foreach ($locations as $location)
+                            <li>
+                                <button wire:click="selectLocation({{ $location }})">
+                                    {{ $location->name }}
+                                </button>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+
+            @endif
             @if (count($results) > 0)
                 <div class="absolute bg-white p-4 w-3/4">
                     <ul>
