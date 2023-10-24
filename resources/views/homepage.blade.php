@@ -8,7 +8,7 @@
             <div class="col-span-2 bg-red-400">
                 <livewire:search />
             </div>
-            <div class="col-span-1 my-2 md:my-0 bg-green-400">signup form</div>
+            <div class="col-span-1 my-2 md:my-0 bg-cyan-600">Signup form</div>
         </div>
     </div>
 @endsection
